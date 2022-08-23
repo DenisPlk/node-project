@@ -13,7 +13,7 @@ agent any
       }
       stage ("building image") {
           steps {
-            script {  
+               
 	      echo " building the docker image"
 		    // cleanup current user docker credentials
               sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
