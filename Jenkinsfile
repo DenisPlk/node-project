@@ -15,6 +15,8 @@ agent any
           steps {
             script {  
 	      echo " building the docker image"
+		    // cleanup current user docker credentials
+              sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
               docker.withRegistry('https://666125743361.dkr.ecr.eu-central-1.amazonaws.com', 'aws-ecr-cred') {
 		     def customImage = docker.build("666125743361.dkr.ecr.eu-central-1.amazonaws.com/testesc:latest")
 		  // push image
