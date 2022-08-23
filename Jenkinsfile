@@ -1,19 +1,30 @@
 pipeline {
 
   agent any
-
+  
+  tools {
+      maven 'Maven'
+  }
   stages {
 
-      stage ("build") {
+      stage ("build jar") {
 
           steps {
-              echo 'building the app'
+            script {  
+	      echo 'building the app'
+	      sh 'mvn package'
+            }
           }
       }
-      stage ("test") {
+      stage ("building image") {
 
           steps {
-              echo 'testing the app'
+            script {
+	      echo " building the docker image"
+              withCredentials([usernamePassword(credentialId: 'git-hub', passwordVariable: 'PASS', usernameVariable: 'USER' )]) 
+              sh 'docker-build -t 666125743361.dkr.ecr.eu-central-1.amazonaws.com/testesc:1.1 . '
+              
+            }
           }
       }
 
