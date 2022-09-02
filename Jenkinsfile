@@ -14,7 +14,7 @@ agent any
       stage ("building image") {
           steps {
                 script{
-                 app = docker.build("666125743361.dkr.ecr.eu-central-1.amazonaws.com/testesc:1.0")
+                 app = docker.build("testesc")
                 }
 		script{
                         docker.withRegistry('https://666125743361.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-central-1:aws-credentials') {
