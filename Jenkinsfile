@@ -20,6 +20,7 @@ agent any
                         docker.withRegistry('https://720766170633.dkr.ecr.us-east-2.amazonaws.com', 'ecr:eu-central-1:aws-credentials') {
                     app.push("${env.BUILD_NUMBER}")
                     app.push("latest")
+		}		
 		  //withCredentials([usernamePassword(credentialsId: 'aws-ecr-cred', usernameVariable: 'USER', passwordVariable: 'DOCKER_PASSWORD')]){  
 	        //    echo " building the docker image"
 		    // cleanup current user docker credentials
