@@ -13,7 +13,7 @@ agent any
       }
       stage ("building image") {
           steps {
-		withCredentials([usernamePassword(credentialsId: 'aws-ecr-cred', usernameVariable: 'USER', passwordVariable: 'PWD')]){  
+		withCredentials([usernamePassword(credentialsId: 'aws-ecr-cred', usernameVariable: 'USER', passwordVariable: 'PSWD')]){  
 	            echo " building the docker image"
 		    // cleanup current user docker credentials
                     sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
