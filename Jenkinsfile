@@ -31,7 +31,8 @@ agent any
 	            sshagent(['ec2-server-key']) {
 			    sh "ssh -o StrictHostKeyChecking=no ubuntu@3.124.214.99 ${dockerCmd}"
 		    }
-}
+		 }
+		 }
       }      
 }
    
